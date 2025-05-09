@@ -1,59 +1,168 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="robots" content="noindex,nofollow">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex,nofollow">
 
+    <title>Home New-Instance</title>
+    <link rel="icon" href="/img/logo/favicon.ico">
 
-        <title>Home New-Instance</title>
-        <link rel="icon" href="/img/logo/favicon.ico">
-        
-        <link rel="stylesheet" href="/css/empty.css">
-        <link rel="stylesheet" href="/css/pure-min.css">
-        <link rel="stylesheet" href="/css/grids-responsive-min.css">
-        <link rel="stylesheet" href="/css/ionicons.min.css">
-        <link rel="stylesheet" href="/css/default.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-        
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    </head>
+    <link rel="stylesheet" href="/css/empty.css">
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 
-    <body class="no-theme">
-        <div id="search-widget" class="pure-g h-box">
-            
-            <div id="logo" class="pure-u-1">
-                <h1 href="javascript:location.replace('/')" class="pure-menu-heading">New-Instance</h1>
-                <a href="javascript:location.replace('/bbs')">掲示板</a>
-            </div>
-            
-            <div class="pure-u-1-4"></div>
-            
-            <div class="pure-u-1 pure-u-md-12-24 searchbar">
-                <form class="pure-form" action="/search" method="get">
-                    <fieldset>
-                        <input id="searchbox" name="q" type="search" placeholder="検索" value="" title="検索" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" autofocus="">
-                    </fieldset>
-                </form>
-            </div>
-            
-            <div class="pure-u-1-4"></div>
+    <style>
+        /* General Body Styles */
+        body {
+            background-color: #ffe4e1; /* Light pink background */
+            font-family: 'Arial', sans-serif; /* A simple, clean font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box;
+        }
+
+        /* Search Widget Container */
+        #search-widget {
+            background-color: #ffffff; /* White background for the widget */
+            border-radius: 20px; /* Rounded corners */
+            padding: 30px; /* Increase padding inside the widget */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            text-align: center; /* Center align content */
+            max-width: 600px; /* Limit maximum width */
+            width: 100%;
+        }
+
+        /* Logo Area */
+        #logo {
+            margin-bottom: 30px; /* Space below the logo */
+        }
+
+        #logo h1 {
+            color: #ff69b4; /* Hot pink color for the title */
+            font-size: 2.5em; /* Slightly larger title */
+            margin: 0 0 10px 0; /* Adjust margin */
+            cursor: pointer; /* Indicate it's clickable */
+        }
+
+        #logo a {
+            color: #4682b4; /* Steel blue for the link */
+            text-decoration: none; /* Remove underline */
+            font-size: 1.1em; /* Slightly larger link text */
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+
+        #logo a:hover {
+            color: #ffb6c1; /* Light pink on hover */
+        }
+
+        /* Search Bar Area */
+        .searchbar {
+            margin-bottom: 20px; /* Space below the search bar */
+        }
+
+        .searchbar .pure-form input[type="search"] {
+            width: 100%; /* Make input fill the container */
+            padding: 15px 20px; /* Increase padding inside the input */
+            border: 2px solid #ffb6c1; /* 薄いピンク色の枠線 */
+            border-radius: 25px; /* もっと角丸に */
+            font-size: 1.2em; /* 大きめのフォントサイズ */
+            box-sizing: border-box; /* パディングとボーダーを幅に含める */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none; /* フォーカス時のデフォルトの枠線を消す */
+            -webkit-appearance: none; /* SafariやChromeでのデフォルトスタイルをリセット */
+            -moz-appearance: none; /* Firefoxでのデフォルトスタイルをリセット */
+            appearance: none; /* 標準のデフォルトスタイルをリセット */
+        }
+
+        .searchbar .pure-form input[type="search"]::placeholder {
+            color: #fda1b7; /* プレースホルダーテキストの色 */
+            opacity: 1; /* プレースホルダーを確実に表示 */
+        }
+
+        .searchbar .pure-form input[type="search"]:focus {
+            border-color: #ff69b4; /* フォーカス時の枠線色 */
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.4); /* フォーカス時の影 */
+        }
+
+        /* Autocomplete dropdown (assuming default jQuery UI structure) */
+        .ui-autocomplete {
+            border: 1px solid #ffb6c1; /* 薄いピンク色の枠線 */
+            border-radius: 10px; /* 角丸 */
+            background-color: #ffffff; /* 白背景 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 影 */
+            overflow: hidden; /* リストアイテムが角丸からはみ出さないように */
+            padding: 0; /* デフォルトのパディングをリセット */
+            margin-top: 5px; /* 検索ボックスとの間に少しスペース */
+        }
+
+        .ui-menu-item {
+            padding: 10px 15px; /* リストアイテムのパディング */
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            list-style: none; /* リストの点を消す */
+        }
+
+        .ui-menu-item:hover,
+        .ui-menu-item.ui-state-active {
+            background-color: #ffb6c1; /* ホバー/アクティブ時の背景色 */
+            color: #8b0000; /* ホバー/アクティブ時のテキスト色 */
+        }
+
+        /* jQuery UI Autocompleteによる不要なマージンやパディングのリセット */
+        .ui-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body class="no-theme">
+    <div id="search-widget" class="pure-g h-box">
+
+        <div id="logo" class="pure-u-1">
+            <h1 onclick="location.replace('/')" class="pure-menu-heading" style="cursor: pointer;">New-Instance</h1>
+            <a href="javascript:location.replace('/bbs')">掲示板</a>
         </div>
-        <script>
-            $('#searchbox').autocomplete({
-                source: function (request, response) {
-                    {
-                        var url = "/suggest?keyword=" + request.term
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("GET", url);
-                        xhr.onload = function() {
-                            response(JSON.parse(xhr.responseText));
-                        }
-                        xhr.send();
+
+        <div class="pure-u-1-4"></div>
+
+        <div class="pure-u-1 pure-u-md-12-24 searchbar">
+            <form class="pure-form" action="/search" method="get">
+                <fieldset>
+                    <input id="searchbox" name="q" type="search" placeholder="検索" value="" title="検索" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" autofocus="">
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="pure-u-1-4"></div>
+    </div>
+    <script>
+        $('#searchbox').autocomplete({
+            source: function(request, response) {
+                {
+                    var url = "/suggest?keyword=" + request.term
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.onload = function() {
+                        response(JSON.parse(xhr.responseText));
                     }
-                },delay:300
-            });
-        </script>
-    </body>
+                    xhr.send();
+                }
+            },
+            delay: 300
+        });
+    </script>
+</body>
+
 </html>
