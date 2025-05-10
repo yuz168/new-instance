@@ -1,182 +1,117 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="robots" content="noindex,nofollow">
-
-    <title>Home New-Instance</title>
-    <link rel="icon" href="/img/logo/favicon.ico">
-
-    <link rel="stylesheet" href="/css/empty.css">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-
-    <style>
-        /* General Body Styles */
-        body {
-            background-color: #1e1e1e; /* Dark background */
-            color: #e0e0e0; /* Light grey text */
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif; /* Modern sans-serif font */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px; /* Add some padding around the content */
-            box-sizing: border-box;
-        }
-
-        /* Search Widget Container */
-        #search-widget {
-            background-color: #2d2d2d; /* Slightly lighter dark background */
-            border-radius: 8px; /* Slightly rounded corners */
-            padding: 40px; /* Increased padding */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
-            text-align: center; /* Center align content */
-            max-width: 700px; /* Wider maximum width */
-            width: 100%;
-            border: 1px solid #3a3a3a; /* Subtle border */
-        }
-
-        /* Logo Area */
-        #logo {
-            margin-bottom: 40px; /* More space below the logo */
-        }
-
-        #logo h1 {
-            color: #00ffff; /* Cyan accent color for the title */
-            font-size: 3em; /* Larger title */
-            margin: 0 0 10px 0; /* Adjust margin */
-            cursor: pointer; /* Indicate it's clickable */
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); /* Subtle text shadow */
-        }
-
-        #logo a {
-            color: #00bfff; /* Deep sky blue for the link */
-            text-decoration: none; /* Remove underline */
-            font-size: 1.2em; /* Slightly larger link text */
-            transition: color 0.3s ease; /* Smooth color transition on hover */
-        }
-
-        #logo a:hover {
-            color: #00ffff; /* Cyan on hover */
-            text-decoration: underline; /* Underline on hover */
-        }
-
-        /* Search Bar Area */
-        .searchbar {
-            margin-bottom: 30px; /* Space below the search bar */
-        }
-
-        .searchbar .pure-form input[type="search"] {
-            width: 100%; /* Make input fill the container */
-            padding: 18px 25px; /* Increased padding */
-            border: 1px solid #00bfff; /* Deep sky blue border */
-            border-radius: 5px; /* Slightly rounded corners */
-            font-size: 1.3em; /* Larger font size */
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            outline: none; /* Remove default outline */
-            background-color: #3a3a3a; /* Darker background for input */
-            color: #e0e0e0; /* Light grey text color */
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-
-        .searchbar .pure-form input[type="search"]::placeholder {
-            color: #a0a0a0; /* Lighter grey for placeholder text */
-            opacity: 1; /* Ensure placeholder is visible */
-        }
-
-        .searchbar .pure-form input[type="search"]:focus {
-            border-color: #00ffff; /* Cyan border on focus */
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); /* More pronounced cyan shadow on focus */
-            background-color: #454545; /* Slightly lighter background on focus */
-        }
-
-        /* Autocomplete dropdown (assuming default jQuery UI structure) */
-        .ui-autocomplete {
-            border: 1px solid #3a3a3a; /* Dark grey border */
-            border-radius: 8px; /* Rounded corners */
-            background-color: #2d2d2d; /* Matching widget background */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow */
-            overflow: hidden; /* Hide sharp corners */
-            padding: 0; /* Reset default padding */
-            margin-top: 8px; /* Space above */
-        }
-
-        .ui-menu-item {
-            padding: 12px 20px; /* Padding for list items */
-            cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            list-style: none; /* Remove list dots */
-            color: #e0e0e0; /* Light grey text color */
-            border-bottom: 1px solid #3a3a3a; /* Separator line */
-        }
-
-         .ui-menu-item:last-child {
-             border-bottom: none; /* Remove border for the last item */
-         }
 
 
-        .ui-menu-item:hover,
-        .ui-menu-item.ui-state-active {
-            background-color: #00bfff; /* Deep sky blue background on hover/active */
-            color: #1e1e1e; /* Dark text for contrast */
-        }
+    <head>
 
-        /* jQuery UI Autocompleteによる不要なマージンやパディングのリセット */
-        .ui-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-    </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
+        <meta name="robots" content="noindex,nofollow">
 
-<body class="no-theme">
-    <div id="search-widget" class="pure-g h-box">
 
-        <div id="logo" class="pure-u-1">
-            <h1 onclick="location.replace('/')" class="pure-menu-heading" style="cursor: pointer;">New-Instance</h1>
-            <a href="javascript:location.replace('/bbs')">掲示板</a>
+
+
+
+        <title>Home New-Instance</title>
+
+        <link rel="icon" href="/img/logo/favicon.ico">
+
+        
+
+        <link rel="stylesheet" href="/css/empty.css">
+
+        <link rel="stylesheet" href="/css/pure-min.css">
+
+        <link rel="stylesheet" href="/css/grids-responsive-min.css">
+
+        <link rel="stylesheet" href="/css/ionicons.min.css">
+
+        <link rel="stylesheet" href="/css/default.css">
+
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    </head>
+
+
+
+    <body class="no-theme">
+
+        <div id="search-widget" class="pure-g h-box">
+
+            
+
+            <div id="logo" class="pure-u-1">
+
+                <h1 href="javascript:location.replace('/')" class="pure-menu-heading">New-Instance</h1>
+
+                <a href="javascript:location.replace('/bbs')">掲示板</a>
+
+            </div>
+
+            
+
+            <div class="pure-u-1-4"></div>
+
+            
+
+            <div class="pure-u-1 pure-u-md-12-24 searchbar">
+
+                <form class="pure-form" action="/search" method="get">
+
+                    <fieldset>
+
+                        <input id="searchbox" name="q" type="search" placeholder="検索" value="" title="検索" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" autofocus="">
+
+                    </fieldset>
+
+                </form>
+
+            </div>
+
+            
+
+            <div class="pure-u-1-4"></div>
+
         </div>
 
-        <div class="pure-u-1-4"></div>
+        <script>
 
-        <div class="pure-u-1 pure-u-md-12-24 searchbar">
-            <form class="pure-form" action="/search" method="get">
-                <fieldset>
-                    <input id="searchbox" name="q" type="search" placeholder="検索" value="" title="検索" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" autofocus="">
-                </fieldset>
-            </form>
-        </div>
+            $('#searchbox').autocomplete({
 
-        <div class="pure-u-1-4"></div>
-    </div>
-    <script>
-        $('#searchbox').autocomplete({
-            source: function(request, response) {
-                {
-                    var url = "/suggest?keyword=" + request.term
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", url);
-                    xhr.onload = function() {
-                        response(JSON.parse(xhr.responseText));
+                source: function (request, response) {
+
+                    {
+
+                        var url = "/suggest?keyword=" + request.term
+
+                        var xhr = new XMLHttpRequest();
+
+                        xhr.open("GET", url);
+
+                        xhr.onload = function() {
+
+                            response(JSON.parse(xhr.responseText));
+
+                        }
+
+                        xhr.send();
+
                     }
-                    xhr.send();
-                }
-            },
-            delay: 300
-        });
-    </script>
-</body>
+
+                },delay:300
+
+            });
+
+        </script>
+
+    </body>
 
 </html>
