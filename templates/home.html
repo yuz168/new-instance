@@ -17,8 +17,9 @@
     <style>
         /* General Body Styles */
         body {
-            background-color: #ffe4e1; /* Light pink background */
-            font-family: 'Arial', sans-serif; /* A simple, clean font */
+            background-color: #1e1e1e; /* Dark background */
+            color: #e0e0e0; /* Light grey text */
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif; /* Modern sans-serif font */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,89 +31,102 @@
 
         /* Search Widget Container */
         #search-widget {
-            background-color: #ffffff; /* White background for the widget */
-            border-radius: 20px; /* Rounded corners */
-            padding: 30px; /* Increase padding inside the widget */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            background-color: #2d2d2d; /* Slightly lighter dark background */
+            border-radius: 8px; /* Slightly rounded corners */
+            padding: 40px; /* Increased padding */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
             text-align: center; /* Center align content */
-            max-width: 600px; /* Limit maximum width */
+            max-width: 700px; /* Wider maximum width */
             width: 100%;
+            border: 1px solid #3a3a3a; /* Subtle border */
         }
 
         /* Logo Area */
         #logo {
-            margin-bottom: 30px; /* Space below the logo */
+            margin-bottom: 40px; /* More space below the logo */
         }
 
         #logo h1 {
-            color: #ff69b4; /* Hot pink color for the title */
-            font-size: 2.5em; /* Slightly larger title */
+            color: #00ffff; /* Cyan accent color for the title */
+            font-size: 3em; /* Larger title */
             margin: 0 0 10px 0; /* Adjust margin */
             cursor: pointer; /* Indicate it's clickable */
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); /* Subtle text shadow */
         }
 
         #logo a {
-            color: #4682b4; /* Steel blue for the link */
+            color: #00bfff; /* Deep sky blue for the link */
             text-decoration: none; /* Remove underline */
-            font-size: 1.1em; /* Slightly larger link text */
+            font-size: 1.2em; /* Slightly larger link text */
             transition: color 0.3s ease; /* Smooth color transition on hover */
         }
 
         #logo a:hover {
-            color: #ffb6c1; /* Light pink on hover */
+            color: #00ffff; /* Cyan on hover */
+            text-decoration: underline; /* Underline on hover */
         }
 
         /* Search Bar Area */
         .searchbar {
-            margin-bottom: 20px; /* Space below the search bar */
+            margin-bottom: 30px; /* Space below the search bar */
         }
 
         .searchbar .pure-form input[type="search"] {
             width: 100%; /* Make input fill the container */
-            padding: 15px 20px; /* Increase padding inside the input */
-            border: 2px solid #ffb6c1; /* 薄いピンク色の枠線 */
-            border-radius: 25px; /* もっと角丸に */
-            font-size: 1.2em; /* 大きめのフォントサイズ */
-            box-sizing: border-box; /* パディングとボーダーを幅に含める */
+            padding: 18px 25px; /* Increased padding */
+            border: 1px solid #00bfff; /* Deep sky blue border */
+            border-radius: 5px; /* Slightly rounded corners */
+            font-size: 1.3em; /* Larger font size */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            outline: none; /* フォーカス時のデフォルトの枠線を消す */
-            -webkit-appearance: none; /* SafariやChromeでのデフォルトスタイルをリセット */
-            -moz-appearance: none; /* Firefoxでのデフォルトスタイルをリセット */
-            appearance: none; /* 標準のデフォルトスタイルをリセット */
+            outline: none; /* Remove default outline */
+            background-color: #3a3a3a; /* Darker background for input */
+            color: #e0e0e0; /* Light grey text color */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         .searchbar .pure-form input[type="search"]::placeholder {
-            color: #fda1b7; /* プレースホルダーテキストの色 */
-            opacity: 1; /* プレースホルダーを確実に表示 */
+            color: #a0a0a0; /* Lighter grey for placeholder text */
+            opacity: 1; /* Ensure placeholder is visible */
         }
 
         .searchbar .pure-form input[type="search"]:focus {
-            border-color: #ff69b4; /* フォーカス時の枠線色 */
-            box-shadow: 0 0 8px rgba(255, 105, 180, 0.4); /* フォーカス時の影 */
+            border-color: #00ffff; /* Cyan border on focus */
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); /* More pronounced cyan shadow on focus */
+            background-color: #454545; /* Slightly lighter background on focus */
         }
 
         /* Autocomplete dropdown (assuming default jQuery UI structure) */
         .ui-autocomplete {
-            border: 1px solid #ffb6c1; /* 薄いピンク色の枠線 */
-            border-radius: 10px; /* 角丸 */
-            background-color: #ffffff; /* 白背景 */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 影 */
-            overflow: hidden; /* リストアイテムが角丸からはみ出さないように */
-            padding: 0; /* デフォルトのパディングをリセット */
-            margin-top: 5px; /* 検索ボックスとの間に少しスペース */
+            border: 1px solid #3a3a3a; /* Dark grey border */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #2d2d2d; /* Matching widget background */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow */
+            overflow: hidden; /* Hide sharp corners */
+            padding: 0; /* Reset default padding */
+            margin-top: 8px; /* Space above */
         }
 
         .ui-menu-item {
-            padding: 10px 15px; /* リストアイテムのパディング */
+            padding: 12px 20px; /* Padding for list items */
             cursor: pointer;
             transition: background-color 0.2s ease, color 0.2s ease;
-            list-style: none; /* リストの点を消す */
+            list-style: none; /* Remove list dots */
+            color: #e0e0e0; /* Light grey text color */
+            border-bottom: 1px solid #3a3a3a; /* Separator line */
         }
+
+         .ui-menu-item:last-child {
+             border-bottom: none; /* Remove border for the last item */
+         }
+
 
         .ui-menu-item:hover,
         .ui-menu-item.ui-state-active {
-            background-color: #ffb6c1; /* ホバー/アクティブ時の背景色 */
-            color: #8b0000; /* ホバー/アクティブ時のテキスト色 */
+            background-color: #00bfff; /* Deep sky blue background on hover/active */
+            color: #1e1e1e; /* Dark text for contrast */
         }
 
         /* jQuery UI Autocompleteによる不要なマージンやパディングのリセット */
