@@ -1,574 +1,233 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 
-<head>
-    <meta http-equiv="Content-Type"
-          content="text/html; charset=UTF-8">
-    <meta name="robots"
-          content="noindex,nofollow">
+    <head>
 
-    <title>{{ channel_name }} New-Instance</title>
-    <link rel="icon"
-          href="/img/logo/favicon.ico">
-    <link rel="stylesheet"
-          href="/css/pure-min.css">
-    <link rel="stylesheet"
-          href="/css/grids-responsive-min.css">
-    <link rel="stylesheet"
-          href="/css/ionicons.min.css">
-    <link rel="stylesheet"
-          href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <style>
-        /* General Body Styles */
-        body {
-            background-color: #1e1e1e;
-            /* Dark background */
-            color: #e0e0e0;
-            /* Light grey text */
-            font-family: 'Segoe UI', 'Roboto',
-                          'Helvetica Neue', sans-serif;
-            /* Modern sans-serif font */
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        <meta name="robots" content="noindex,nofollow">
 
-        a {
-            color: #00bfff;
-            /* Default link color */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #00ffff;
-            /* Cyan on hover */
-            text-decoration: underline;
-        }
-
-        hr {
-            border: none;
-            /* 枠線を削除 */
-            height: 1px;
-            /* 区切り線として細い線を表示 */
-            background-color: #3a3a3a;
-            /* 線色 */
-            margin: 15px 0;
-            /* Adjust margin */
-        }
-
-        /* Main Content Area */
-        #contents {
-            padding: 15px;
-            /* Reduced padding */
-            background-color: #2d2d2d;
-            /* Slightly lighter dark background for content area */
-            min-height: 100vh;
-            /* Ensure it takes at least full viewport height */
-            box-sizing: border-box;
-        }
-
-        /* Navbar / Search Area */
-        .navbar {
-            background-color: #2d2d2d;
-            /* Matching content area background */
-            padding: 8px 0;
-            /* Reduced padding */
-            margin-bottom: 15px;
-            /* Reduced space below the navbar */
-            display: flex;
-            /* Use flexbox for layout */
-            align-items: center;
-            /* Vertically align items */
-            flex-wrap: wrap;
-            /* Allow items to wrap on smaller screens */
-        }
-
-        /* ナビゲーションリンク (ホーム, 掲示板など - もしあれば) */
-        .navbar a {
-            margin-right: 10px;
-            /* Reduced space between nav links */
-            font-size: 1em;
-            /* Slightly smaller font */
-            /* 必要に応じてリンクの色やホバーを個別に指定 */
-        }
-
-        /* Search Bar */
-        .searchbar {
-            flex-grow: 1;
-            /* Allow searchbar to take available space */
-            margin-left: 15px;
-            /* Reduced space after nav links */
-            max-width: 400px;
-            /* Slightly narrower searchbar */
-        }
-
-        /* Search form and fieldset reset */
-        .searchbar .pure-form {
-            margin: 0;
-        }
-
-        .searchbar .pure-form fieldset {
-            padding: 0;
-            margin: 0;
-            border: none;
-        }
+        
 
 
-        .searchbar .pure-form input[type="search"] {
-            width: 100%;
-            /* Make input fill the container */
-            padding: 8px 12px;
-            /* Reduced padding */
-            border: none;
-            /* 枠線を削除 */
-            border-radius: 4px;
-            /* Slightly smaller rounded corners */
-            font-size: 0.9em;
-            /* Slightly smaller font size */
-            box-sizing: border-box;
-            transition: box-shadow 0.3s ease;
-            /* 枠線色のトランジションを削除 */
-            outline: none;
-            /* Remove default outline */
-            background-color: #3a3a3a;
-            /* Darker background for input */
-            color: #e0e0e0;
-            /* Light grey text color */
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
 
-        .searchbar .pure-form input[type="search"]::placeholder {
-            color: #a0a0a0;
-            /* Lighter grey for placeholder text */
-            opacity: 1;
-        }
+        <title>{{ channel_name }}</title>
 
-        .searchbar .pure-form input[type="search"]:focus {
-            /* border-color: #00ffff; */
-            /* 枠線色の変更を削除 */
-            box-shadow: 0 0 6px rgba(0, 255, 255, 0.4);
-            /* フォーカス時の影 */
-            background-color: #454545;
-            /* Slightly lighter background on focus */
-        }
+        <link rel="icon" href="/img/logo/favicon.ico">
 
-        /* Cover Image */
-        #cover_img {
-            display: block;
-            /* Remove extra space below image */
-            width: 100%;
-            max-height: 250px;
-            /* Reduced max height */
-            object-fit: cover;
-            /* Ensure image covers the area without distortion */
-            margin: 0 0 15px 0 !important;
-            /* Adjusted margin */
-            border-radius: 6px;
-            /* Slightly smaller rounded corners */
-        }
+        <link rel="stylesheet" href="/css/pure-min.css">
 
-        /* Channel Profile Section */
-        .channel-profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            /* Reduced margin */
-        }
+        <link rel="stylesheet" href="/css/grids-responsive-min.css">
 
-        .channel-profile img {
-            width: 50px;
-            /* Reduced channel icon size */
-            height: 50px;
-            /* Reduced channel icon size */
-            border-radius: 50%;
-            /* Round channel icon */
-            margin-right: 10px;
-            /* Reduced space after icon */
-            border: none;
-            /* 枠線を削除 */
-            flex-shrink: 0;
-            /* Prevent shrinking */
-        }
+        <link rel="stylesheet" href="/css/ionicons.min.css">
 
-        .channel-profile span {
-            font-size: 1.3em;
-            /* Reduced channel name font size */
-            color: #e0e0e0;
-            /* Light grey for channel name */
-            font-weight: bold;
-        }
+        <link rel="stylesheet" href="/css/default.css">
 
-        /* Subscribers Count */
-        #subscribers_count {
-            font-size: 0.9em;
-            /* Reduced font size */
-            color: #a0a0a0;
-            /* Lighter grey */
-            margin: 0 0 15px 70px;
-            /* Adjusted margin to align with reduced icon size */
-        }
-
-        /* Channel Description Box */
-        #descriptionWrapper {
-            background-color: #3a3a3a;
-            /* Darker background */
-            border-radius: 6px;
-            /* Slightly smaller rounded corners */
-            padding: 12px;
-            /* Reduced padding */
-            margin-top: 12px;
-            /* Reduced space above description */
-            font-size: 0.85em;
-            /* Slightly smaller font size */
-            line-height: 1.5;
-            /* Slightly reduced line height */
-            color: #e0e0e0;
-        }
-
-        #descriptionWrapper a {
-            color: #00ffff;
-            /* Cyan links in description */
-            text-decoration: underline;
-        }
-
-        /* Videos/Playlists Grid */
-        /* Pure.CSS grids should handle the layout */
-        .pure-g {
-            margin-bottom: 15px;
-            /* Reduced space between rows of results */
-        }
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
 
 
-        /* Individual Result Item Container */
-        .pure-u-md-1-4 {
-            box-sizing: border-box;
-            padding: 8px;
-            /* Reduced padding around each result item */
-        }
 
-        .h-box {
-            background-color: #2d2d2d;
-            /* Matching content area background */
-            border: none;
-            /* 枠線を削除 */
-            border-radius: 6px;
-            /* Slightly smaller rounded corners */
-            padding: 12px;
-            /* Reduced padding inside the result item box */
-            height: 100%;
-            /* Ensure boxes in the same row have similar height */
-            display: flex;
-            flex-direction: column;
-        }
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-        /* Thumbnail styles (reused from search results) */
-        .thumbnail {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 8px;
-            /* Reduced margin */
-            border-radius: 4px;
-            /* Slightly smaller rounded corners for thumbnails */
-        }
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        .thumbnail img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Cover the area without distorting aspect ratio */
-            display: block;
-        }
+    </head>
 
-        .length {
-            position: absolute;
-            bottom: 6px;
-            /* Adjusted position */
-            right: 6px;
-            /* Adjusted position */
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Semi-transparent black background */
-            color: #e0e0e0;
-            /* Light grey text */
-            padding: 1px 5px;
-            /* Reduced padding */
-            border-radius: 3px;
-            /* Slightly smaller rounded corners */
-            font-size: 0.75em;
-            /* Slightly smaller font size */
-            z-index: 1;
-            /* Ensure it's above the image */
-        }
+    <body class="no-theme">
 
-        /* Text below thumbnail */
-        .h-box > a > p[dir="auto"] {
-            /* Video/Playlist titles */
-            color: #e0e0e0;
-            /* Light grey color */
-            margin: 0 0 3px 0;
-            /* Reduced margin */
-            font-size: 0.9em;
-            /* Reduced font size */
-            line-height: 1.2;
-            /* Reduced line height */
-            flex-grow: 1;
-            /* Allows title to take available space */
-        }
+        <span id="dark_mode_pref" style="display:none"></span>
 
-        /* Author/View Count/Published Date in result items */
-        .video-card-row {
-            font-size: 0.8em;
-            /* Reduced font size */
-            color: #a0a0a0;
-            /* Lighter grey for metadata */
-            margin-top: 4px;
-            /* Reduced margin */
-        }
+        <div class="pure-g">
 
-        .video-card-row.flexible {
-            display: flex;
-            justify-content: space-between;
-        }
+            <div class="pure-u-1 pure-u-md-2-24"></div>
 
-        .video-card-row a {
-            color: #a0a0a0;
-            /* Lighter grey for channel links */
-        }
+            <div id="contents" class="pure-u-1 pure-u-md-20-24">
 
+                
 
-        .video-data {
-            margin: 0 8px 0 0;
-            /* Reduced margin */
-            white-space: nowrap;
-            /* Prevent wrapping */
-        }
+                <div class="pure-g navbar h-box">
 
-        .flex-left {
-            display: flex;
-        }
+                    <div class="pure-u-1 pure-u-md-12-24 searchbar">
 
-        /* Channel Result Thumbnail (if any) */
-        .h-box center img {
-            width: 100% !important;
-            /* Override inline style */
-            max-width: 120px;
-            /* Reduced max width */
-            border-radius: 50%;
-            /* Rounded channel image */
-            margin-bottom: 8px;
-            /* Reduced margin */
-            border: none;
-            /* 枠線を削除 */
-        }
+                        <form class="pure-form" action="/search" method="get">
 
-        /* Playlist count text (same style as video length) */
-        .h-box .thumbnail p.length {
-            bottom: 6px;
-            /* Adjusted position */
-            right: 6px;
-            /* Adjusted position */
-        }
+                            <fieldset>
 
+                                <input id="searchbox" name="q" type="search" placeholder="検索" title="検索" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false">
 
-        /* jQuery UI Autocomplete styles (re-apply cool theme, with reduced padding) */
-        .ui-autocomplete {
-            border: none;
-            /* 枠線を削除 */
-            border-radius: 6px;
-            /* Slightly smaller rounded corners */
-            background-color: #2d2d2d;
-            /* Matching widget background */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            /* Shadow */
-            overflow: hidden;
-            /* Hide sharp corners */
-            padding: 0;
-            /* Reset default padding */
-            margin-top: 6px;
-            /* Reduced space above */
-            z-index: 1000;
-            /* Ensure it's above other content */
-        }
+                            </fieldset>
 
-        .ui-menu-item {
-            padding: 8px 15px;
-            /* Reduced padding for list items */
-            cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            list-style: none;
-            /* Remove list dots */
-            color: #e0e0e0;
-            /* Light grey text color */
-            border-bottom: none;
-            /* 枠線を削除 */
-        }
+                        </form>
 
-        .ui-menu-item:last-child {
-            border-bottom: none;
-            /* Remove border for the last item */
-        }
-
-
-        .ui-menu-item:hover,
-        .ui-menu-item.ui-state-active {
-            background-color: #00bfff;
-            /* Deep sky blue background on hover/active */
-            color: #1e1e1e;
-            /* Dark text for contrast */
-        }
-
-        /* jQuery UI Autocompleteによる不要なマージンやパディングのリセット */
-        .ui-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-    </style>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
-
-<body class="no-theme">
-    <span id="dark_mode_pref"
-          style="display:none"></span>
-    <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-24"></div>
-        <div id="contents"
-             class="pure-u-1 pure-u-md-20-24">
-
-            <div class="pure-g navbar h-box">
-                <div class="pure-u-1 pure-u-md-12-24 searchbar">
-                    <form class="pure-form"
-                          action="/search"
-                          method="get">
-                        <fieldset>
-                            <input id="searchbox"
-                                   name="q"
-                                   type="search"
-                                   placeholder="検索"
-                                   title="検索"
-                                   autocomplete="on"
-                                   autocorrect="on"
-                                   autocapitalize="none"
-                                   spellcheck="false">
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            <img id="cover_img"
-                 src="{{ cover_img_url }}"
-                 alt="カバー画像">
-            <div class="pure-g h-box">
-                <div class="pure-u-2-3">
-                    <div class="channel-profile">
-                        <img src="{{ channel_icon }}"
-                             alt="{{ channel_name }}のアイコン">
-                        <span>{{ channel_name }}</span>
                     </div>
-                    <p id="subscribers_count">チャンネル登録者数: {{ subscribers_count }}人</p>
+
                 </div>
-                </div>
 
-            <div class="h-box">
-                <div id="descriptionWrapper">
-                    <p><span style="white-space:pre-wrap">{{ channel_profile | safe }}</span></p>
-                </div>
-            </div>
+                <img id="cover_img" src="{{ cover_img_url }}" alt="カバー画像" style="margin: 1%">
 
-            <div class="pure-g">
+                <div class="pure-g h-box">
 
-                {% for result in results %}
-                <div class="pure-u-1 pure-u-md-1-4">
-                    <div class="h-box">
+                    <div class="pure-u-2-3">
 
-                        {% if result["type"] == "video" %}
-                        <a href="/watch?v={{ result['id'] }}"
-                           style="width:100%">
-                            <div class="thumbnail">
-                                <img class="thumbnail"
-                                     loading="lazy"
-                                     src="{% if proxy == "
-                                     True " %}/thumbnail?v={{ result['id'] }}{% else %}https://img.youtube.com/vi/{{ result['id'] }}/0.jpg{% endif %}"
-                                     onerror="document.cookie = 'proxy=True;max-age=2592000;';">
-                                <p class="length">{{ result["length_str"] }}</p>
-                            </div>
-                            <p dir="auto">{{ result['title'] }}</p>
-                        </a>
-                        <div class="video-card-row flexible">
-                            <a href="/channel/{{ result['authorId'] }}">{{ result["author"] }}</a>
-                        </div>
-                        <div class="video-card-row flexible">
-                            <div class="flex-left">
-                                <p class="video-data"
-                                   dir="auto">{{ result['view_count_text'] }}</p>
-                                <p class="video-data"
-                                   dir="auto">{{ result["published"] }}</p>
-                            </div>
+                        <div class="channel-profile">
+
+                            <img src="{{ channel_icon }}">
+
+                            <span>{{ channel_name }}</span>
+
                         </div>
 
-                        {% elif result["type"] == "channel" %}
-                        <a href="/channel/{{ result["id"] }}">
-                            <center>
-                                <img loading="lazy"
-                                     tabindex="-1"
-                                     style="width:56.25%"
-                                     src="{{ result["thumbnail"] }}">
-                            </center>
-                            <p dir="auto">{{ result["author"] }}</p>
-                        </a>
+                        <p id="subscribers_count">チャンネル登録者数: {{ subscribers_count }}人</p>
 
-                        {% elif result["type"] == "playlist" %}
-                        <a href="/playlist?list={{ result["id"] }}"
-                           style="width:100%;">
-
-                            <div class="thumbnail">
-                                <img loading="lazy"
-                                     tabindex="-1"
-                                     class="thumbnail"
-                                     src="{% if proxy == "
-                                     True " %}/thumbnail?v={{ result['thumbnail'] }}{% else %}https://img.youtube.com/vi/{{ result['thumbnail'] }}/0.jpg{% endif %}">
-                                <p class="length">{{ result["count"] }}個の動画</p>
-                            </div>
-                            <p dir="auto">{{ result["title"] }}</p>
-                        </a>
-
-                        {% endif %}
                     </div>
+
                 </div>
-                {% endfor %}
+
+                
+
+                <div class="h-box">
+
+                    <div id="descriptionWrapper">
+
+                        <p><span style="white-space:pre-wrap">{{ channel_profile | safe }}</span></p>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div class="pure-g">
+
+                    
+
+                    {% for result in results %}
+
+                    <div class="pure-u-1 pure-u-md-1-4">
+
+                        <div class="h-box">
+
+                            
+
+                            {% if result["type"] == "video" %}
+
+                            <a href="/watch?v={{ result['id'] }}" style="width:100%" >
+
+                                <div class="thumbnail">
+
+                                    <img class="thumbnail" loading="lazy" src="{% if proxy == "True" %}/thumbnail?v={{ result['id'] }}{% else %}https://img.youtube.com/vi/{{ result['id'] }}/0.jpg{% endif %}" onerror="document.cookie = 'proxy=True;max-age=2592000;';">
+
+                                    <p class="length">{{ result["length_str"] }}</p>
+
+                                </div>
+
+                                <p dir="auto">{{ result['title'] }}</p>
+
+                            </a>
+
+                            <div class="video-card-row flexible">
+
+                                <a href="/channel/{{ result['authorId'] }}">{{ result["author"] }}</a>
+
+                            </div>
+
+                            <div class="video-card-row flexible">
+
+                                <div class="flex-left">
+
+                                    <p class="video-data" dir="auto">{{ result['view_count_text'] }}</p>
+
+                                    <p class="video-data" dir="auto">{{ result["published"] }}</p>
+
+                                </div>
+
+                            </div>
+
+                            
+
+                            {% elif result["type"] == "channel" %}
+
+                            <a href="/channel/{{ result["id"] }}">
+
+                                <center>
+
+                                    <img loading="lazy" tabindex="-1" style="width:56.25%" src="{{ result["thumbnail"] }}">
+
+                                </center>
+
+                                <p dir="auto">{{ result["author"] }}</p>
+
+                            </a>
+
+                            
+
+                            {% elif result["type"] == "playlist" %}
+
+                            <a href="/playlist?list={{ result["id"] }}" style="width:100%;">
+
+                            
+
+                                <div class="thumbnail">
+
+                                    <img loading="lazy" tabindex="-1" class="thumbnail" src="{% if proxy == "True" %}/thumbnail?v={{ result['thumbnail'] }}{% else %}https://img.youtube.com/vi/{{ result['thumbnail'] }}/0.jpg{% endif %}">
+
+                                    <p class="length">{{ result["count"] }}個の動画</p>
+
+                                </div>
+
+                                <p dir="auto">{{ result["title"] }}</p>
+
+                            </a>
+
+                            
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
             </div>
+
         </div>
-    </div>
-    <div class="pure-u-1 pure-u-md-2-24"></div>
 
 
-    <script>
-        $('#searchbox').autocomplete({
-            source: function(request, response) {
-                {
-                    var url = "/suggest?keyword=" + request.term;
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", url);
-                    xhr.onload = function() {
-                        response(JSON.parse(xhr.responseText));
+
+        <script>
+
+            $('#searchbox').autocomplete({
+
+                source: function (request, response) {
+
+                    {
+
+                        var url = "/suggest?keyword=" + request.term;
+
+                        var xhr = new XMLHttpRequest();
+
+                        xhr.open("GET", url);
+
+                        xhr.onload = function() {
+
+                            response(JSON.parse(xhr.responseText));
+
+                        }
+
+                        xhr.send();
+
                     }
-                    xhr.send();
-                }
-            },
-            delay: 300
+
+                },delay:300
+
         });
-    </script>
-</body>
+
+        </script>
+
+    </body>
 
 </html>
